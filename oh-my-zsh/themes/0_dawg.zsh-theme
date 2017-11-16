@@ -44,7 +44,8 @@ CURRENT_BG='NONE'
   # what font the user is viewing this source code in. Do not replace the
   # escape sequence with a single literal character.
   # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
-  SEGMENT_SEPARATOR=$'\ue0b0'
+  SEGMENT_SEPARATOR=$'\ue0c0'
+  NEW_LINE_STARTER=$'\ue0c0'
 }
 
 # Begin a segment
@@ -192,7 +193,7 @@ prompt_status() {
 prompt_newline() {
   if [[ -n $CURRENT_BG ]]; then
     echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
-%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+%{%k%F{$CURRENT_BG}%}$NEW_LINE_STARTER "
   else
     echo -n " %{%k%}"
   fi
